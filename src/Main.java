@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -6,48 +7,31 @@ public class Main {
         int n = 0;
         int m = 0;
 
-        Scanner scanner = new Scanner(System.in);
+        LeerNumero leerNumero = new LeerNumero();
+        NumeroMasGrande numeroMasGrande = new NumeroMasGrande();
+        SumaArray sumaArray = new SumaArray();
 
-        System.out.println("Escriba el número de espacios para el primer array:");
-        n = Integer.parseInt(scanner.nextLine());
+        n = leerNumero.leerEntero("Escriba el número de espacios para el primer array: ");
 
         int array1[] = new int[n];
 
         for (int i = 0; i < n; i++) {
-            System.out.println("Agregar el numero en la posicion: " + i);
-            array1[i] = Integer.parseInt(scanner.nextLine());
+            array1[i] = leerNumero.leerEnteroFor("Agregar el numero en la posicion " , i);
         }
 
-        System.out.println("Escriba el número de espacios para el segundo array:");
-        m = Integer.parseInt(scanner.nextLine());
+        m = leerNumero.leerEntero("Escriba el número de espacios para el segundo array: ");
 
         int array2[] = new int[m];
 
         for (int i = 0; i < m; i++) {
-            System.out.println("Agregar el numero en la posicion: " + i);
-            array2[i] = Integer.parseInt(scanner.nextLine());
+            array2[i] = leerNumero.leerEnteroFor("Agregar el numero en la posicion " , i);
         }
-
-        NumeroMasGrande numeroMasGrande = new NumeroMasGrande();
 
         int masGrande = numeroMasGrande.masGrande(n,m);
 
         int array3[] = new int[masGrande];
 
-        for (int i = 0; i < array3.length; i++) {
-            int valArr1 = 0;
-            int valArr2 = 0;
-
-            if (array1.length>i){
-                valArr1 = array1[i];
-            }
-
-            if(array2.length>i){
-                valArr2 = array2[i];
-            }
-
-            array3[i] = valArr1 + valArr2;
-        }
+        sumaArray.suma(array1,array2,array3);
 
         System.out.println(Arrays.toString(array1));
         System.out.println(Arrays.toString(array2));
