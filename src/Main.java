@@ -11,6 +11,8 @@ public class Main {
         NumeroMasGrande numeroMasGrande = new NumeroMasGrande();
         SumaArray sumaArray = new SumaArray();
 
+        System.out.println("Suma de Vectores");
+
         n = leerNumero.leerEntero("Escriba el número de espacios para el primer array: ");
 
         int array1[] = new int[n];
